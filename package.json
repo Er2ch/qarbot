@@ -1,0 +1,34 @@
+{
+  "name": "qarbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas-constructor": "^3.0.0",
+    "centra": "^2.2.1",
+    "child_process": "^1.0.2",
+    "discord.js": "^11.5.1",
+    "ffmpeg-binaries": "^4.0.0",
+    "hastebin-gen": "^2.0.5",
+    "jimp": "^0.6.4",
+    "jszip": "^3.2.1",
+    "mathjs": "^5.10.3",
+    "moment-timezone": "^0.5.25",
+    "node-fetch": "^2.6.0",
+    "opusscript": "0.0.6",
+    "os": "^0.1.1",
+    "request": "^2.88.0",
+    "rgbcolor": "^1.0.1",
+    "safe-eval": "^0.4.1",
+    "snekfetch": "^4.0.4",
+    "util": "^0.12.0",
+    "weather-js": "^2.0.0",
+    "canvas": "^2.5.0",
+    "ertuapi": "^1.3.2"
+  }
+}
