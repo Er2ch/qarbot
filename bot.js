@@ -77,9 +77,11 @@ class ErtuAPI {
     _this.client.on('ready', () => {
       _this.commands = []
       require('fs').readdir('./cmds', (err, data) => {
+        let i = 0;
         if(err) throw err
         data.forEach(command => {
           if(command.startsWith('-')) return
+          i++
           const cmd = require('./cmds/' + command)
           _this.commands.push({
             name: cmd.info.name,
@@ -91,12 +93,12 @@ class ErtuAPI {
             hidden: cmd.info.hidden || false,
           })
           delete require.cache[require.resolve('/app/cmds/' + command)]
-          console.log('Added command =' + cmd.info.name)
+          console.log('Added ' + (i.toString().length === 1?'0' + i:i) + (parseInt(i.toString()[i.toString().length - 1]) >= 4?'\'th':(parseInt(i.toString()[i.toString().length - 1]) === 1?'\'st':(parseInt(i.toString()[i.toString().length - 1]) === 2?'\'nd':(parseInt(i.toString()[i.toString().length - 1]) === 3?'\'rd':'\'s ')))) + (cmd.info.private?' private':(cmd.info.hidden?' hidden ':'        ')) + ' command =' + cmd.info.name)
         })
       })
           _this.client.user.setActivity(`=help | ${_this.declOfNum(_this.client.guilds.size, ['сервер', 'сервера', 'серверов'])}`,{ type: 'PLAYING' });
     setInterval(() => commandsPerHour = 0, 3600000);
-        setInterval(() => {
+        if(_this.client.shard.id === 0) setInterval(() => {
         _this.client.channels.get('541863741248110592').fetchMessage('541864816197763074').then(msg => _this.api.ping(eapi => msg.edit(new _this.Discord.RichEmbed()
         .setTitle(`Bot ${_this.client.user.tag.slice(0, -5)}`)
         .setThumbnail(_this.client.user.avatarURL)
@@ -195,7 +197,7 @@ if(!prifix) return;
       const cmd = _this.commands.find(c => command.match(new RegExp(c.regex)));
       const authorAvatar = message.author.avatarURL || message.author.defaultAvatarURL;
   
-if(!command && prifix === prixix[0]) return message.channel.send('Hello! My prefix in this guild is `' + prixix[1] + '`\nFor starting typing `' + prixix[1] + 'help`')
+if(!command && prifix === prifix[0]) return message.channel.send('Hello! My prefix in this guild is `' + prixix[1] + '`\nFor starting typing `' + prixix[1] + 'help`')
   //if(!cmd && command) {msgs++; message.reply('команды `' + command + '` не существует.\n' + (!prefixes[message.guild.id]?'Если это вышло по ошибке - смените префикс.':''), {disableEveryone: true})}
      if(cmd) {
        const cdsecs = 5
