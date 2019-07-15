@@ -6,4 +6,4 @@ args: '',
 private: false,
 hidden: false
 }
-module.exports.run = (message) => message.channel.send(`Пригласить бота ${ErtuAPI.client.user.tag.slice(0, -5)}:\nhttps://discordapp.com/api/oauth2/authorize?client_id=${ErtuAPI.client.user.id}&permissions=8&scope=bot`)
+module.exports.run = (message) => message.channel.send(`Пригласить бота ${ErtuAPI.client.user.username}:\nhttps://discordapp.com/api/oauth2/authorize?client_id=${ErtuAPI.client.user.id}&permissions=8&scope=bot`)
